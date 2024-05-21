@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="AR" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man vs Bee</title>
+  <link href="https://cdn.icon-icons.com/icons2/125/PNG/96/movies_drive_20265.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!----------  اكواد استايل القائمة  ------------>
+    <style>
+    
+
+        .topnav {
+            position: relative;
+            overflow: hidden;
+            border-color: #000;
+            border-radius: 4px;
+            top: 0;
+            height:50px;
+            width: 100%;
+            box-shadow: 0px 0px 12px #fff;
+            z-index: 1;
+
+            /**  تغير الون خلفيه اللوجو   **/
+   background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
+
+            /**  تغير الون LKHAT اللوجو   **/
+        }
+
+        .topnav a {
+            float: left;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+       
+ 
+   /* إضافة تأثير تغيير لون الخلفية عند تحديد الزر */
+        .topnav a:focus {
+           background-color: #6f2f9f;
+            border-radius: 8px; /* يمكنك تغيير اللون إلى أي لون تفضله */
+            color: #fff; /* تغيير لون النص إلى اللون المناسب للخلفية */
+            outline: none; /* إزالة تأثير الـ focus الافتراضي */
+        }
+
+        /* للتأكد من أن الزر يمكن الوصول إليه عند التحكم بجهاز التحكم عن بُعد */
+        .topnav a:hover {
+            background-color: #6f2f9f;
+            border-radius: 8px; /* يمكنك تغيير اللون إلى أي لون تفضله */
+            color: #fff; /* تغيير لون النص إلى اللون المناسب للخلفية */
+        }
+
+        .topnav-centered a {
+
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        /* Responsive navigation menu (for mobile devices) */
+        @media screen and (max-width: 100%) {
+            .topnav a,
+            .topnav-right {
+                float: none;
+                display: block;
+            }
+
+            .topnav-centered a {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                color: #000;
+            }
+        }
+        
+        kat{
+ text-align: center;
+ font-size: 24px;
+font-family: 'El Messiri', sans-serif;
+}
+    </style>
+    <head>
+
+        <body>
+
+           
+            <!-- lçaima l3lwia and-->
+            <html>
+<head>
+    
+    <style>
+           body {
+                height: 100%;
+                margin: auto;
+                position: relative;
+           background: #3c4a71;
+             background-position: center;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+           button {
+                position: relative;
+                align:center;
+                height: 216px;
+                width: 160px;
+        box-shadow: 0px 0px 6px #000;
+                margin: 5px;
+              border-color: #666;
+                outline: none;
+                text-align: center;
+                font-size: 25px;
+                color: black;
+                 background-color: #fff;
+                cursor: pointer;
+                border-radius: 5px;
+                font-family: 'Raleway', sans-serif;
+            
+            }
+
+
+            button {
+    margin-top: 15px; /* تبعد الأزرار عن القائمة بمقدار 5 بيكسل */
+}
+
+            button img {
+            position: relative;
+                align:center;
+                border-radius: 8px;
+                height: 200px;
+                width: 140px;
+            }
+        
+        
+ 
+   /* إضافة تأثير تغيير لون الخلفية عند تحديد الزر */
+        .button:hover,.button:focus { 
+        border: 3px solid gold;
+            background: #6f2f9f; /* يمكنك تغيير اللون إلى أي لون تفضله */
+            color: #fff; /* تغيير لون النص إلى اللون المناسب للخلفية */
+            outline: none; /* إزالة تأثير الـ focus الافتراضي */
+        }
+
+       
+            /* .ازالة شريط التمرير اسفل المدونة*/
+            html {
+                overflow-x: hidden;
+            }
+
+            /* ازالة تغيير شكل السكرول بار Scroll.Bar */
+            ::-webkit-scrollbar {
+                width: 7px;
+                /**  تغير  لون القائمة **/
+            }
+
+            ::-webkit-scrollbar-thumb {
+                -webkit-shadow: inset 0 0 0 #000000;
+                -webkit-border-radius: 0;
+                background-image: -webkit-linear-gradient(top, #bc1115 100%, #000 100%);
+            }
+
+            ::-webkit-scrollbar-track {
+                -webkit-shadow: inset 0 0 0 #000000;
+                -webkit-border-radius: 100px;
+            }
+
+             h2 {
+   position: absolute;  
+   top: 180px;
+    left: 4;
+	text-align: center;
+	margin-top:0px;
+	font-size: 18px;
+	color:#fff;
+	font-family: "Airarabia", Sans-serif;
+	font-weight: bold;
+	}
+        
+/* تظهر الأيقونة أعلى الزجاجية */
+.watched-icon {
+    position: absolute;
+    top: 0;
+    left: 0; /* يمكنك ضبط القيمة الأفضل حسب تصميمك */
+    width: 24px;
+    height: 24px;
+    z-index: 2; /* لجعلها تظهر فوق الزجاجية */
+    background:#04AA6D; /* لخلفية زجاجية بلون أبيض شفاف */
+    border-radius: 20%; /* للزوايا المستديرة */
+    border-color:black;
+    padding: 5px; /* تعديل حجم الأيقونة داخل الزجاجية */
+    box-shadow: 0 0 5px red(0, 0, 0, 0.2); /* ظل للزجاجية */
+}
+
+.episode {
+text-align: center;
+    width: 147px;
+    height: 26px;
+    background-color:#000; /* لخلفية زجاجية بلون أبيض شفاف */
+    border-radius: 8px; /* للزوايا المستديرة */
+  
+}
+                </style>
+           <!-- Top navigation -->
+            <div class="topnav">
+                <!-- ISIM TATBI9 -->
+                              <!-- ISIM TATBI9 -->
+ <!-- ISIM TATBI9 -->
+                <div class="topnav-centered">
+<a><center><kat class="kat">Man vs Bee </kat></center> </a></div>
+              
+
+                <!-- ISIM TATBI9 -->
+                <!-- ZIR ROJO3 -->
+                <a href="go:1 ">
+                    <i id="i1" class="fa fa-reply fa-beat" style="font-size: 20px; margin-top: 2px; "></i>
+                </a>
+                <!-- ZIR ROJO3 -->
+
+
+                <!-- ZIR LBAHT-search -->
+                <div class="topnav-right">
+                    <a href="http://action_search/"><i class="fa fa-search fa-beat" style="font-size: 20px;"></i></a>
+                    <!-- ZIR LBAHT-search -->
+
+                </div>
+
+            </div>
+      
+           <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.section');
+
+  sections.forEach(function(section) {
+    const buttons = section.querySelectorAll('.button');
+    buttons.forEach(function(button, index) {
+      const watchedIcon = button.querySelector('.watched-icon');
+      const episodeNumber = index + 1;
+      const storageKey = `section${section.dataset.section}-watchedIcon${episodeNumber}`;
+      const isWatched = localStorage.getItem(storageKey);
+
+      if (isWatched === "true") {
+        watchedIcon.style.display = "inline";
+      }
+
+     button.addEventListener('click', function () {
+                const isWatched = localStorage.getItem(storageKey);
+
+                if (isWatched === "true") {
+                    watchedIcon.style.display = "inline";
+                } else {
+                    watchedIcon.style.display = "inline";
+                    localStorage.setItem(storageKey, "true");
+                }
+            });
+        });
+    });
+});
+
+</script> 
+
+ 
+</head>
+<body>
+
+<div align="center" >
+<div id="button-list">	
+<div class="container">
+<div id="button">
+<div class="section" data-section="Man vs Bee-1">
+<div> 
+
+
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvZXM5bXM3YXYwZzNqcmd4OGI2NnR2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT1vYXplMmpuOThobWg4bjAyc3p5ZHExMzNlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-1</h2></button></a> 
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMGZyc29iamJvYTZ1Nmx0MzF5OTAyL01hbi12cy4tQmVlLXMxLWUyLm1wND9ybGtleT0xeGNmM29mZ3Y0bG1nbm54cmhidGRyaWljJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-2</h2></button></a> 
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcDQzOGZveXkwdGRra2xvYWFma21tL01hbi12
+cy4tQmVlLXMxLWUzLm1wND9ybGtleT04dWY4eTludmRlbHA0bHppc2NybmpqOWJ2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-3</h2></button></a>
+
+
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcTE4OTJ5cHVidWg4NjZ2eTUycWhhL01hbi12
+cy4tQmVlLXMxLWU0Lm1wND9ybGtleT0zZzczbHlpbXFpcXdyZjIxYTV5dGpucHUyJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-4</h2></button></a>
+
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvc2F3dTF3aXg2a212b3NoeW9namhlL01hbi12
+cy4tQmVlLXMxLWU1Lm1wND9ybGtleT1yc3VudzEyOW1qMWdrZ3hmZWF0bnc3anloJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-5</h2></button></a>
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvNGI0dndvMXJxOW5iMGQ4Z3BkbGpnL01hbi12
+cy4tQmVlLXMxLWU2Lm1wND9ybGtleT11MWRnYTM1OWxmeDEyMjRzZ2h3cmF1d2dlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-6</h2></button></a>
+
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvb252NThuZTJlZGFoOTE4cjk5c282L01hbi12
+cy4tQmVlLXMxLWU3Lm1wND9ybGtleT03cmFoZ3JyYm5maXJocmNtcXdsNmphY2d2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-7</h2></button></a>
+
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMG8zcXRscTd2engxdTU1d2Z2dGdqL01hbi12
+cy4tQmVlLXMxLWU4Lm1wND9ybGtleT1sc3ZrNno3NHYwenZvdW15aXBycWljeWZzJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-8</h2></button></a>
+
+<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvd2k1NGd4MTkzdnBvemVsdXQ4bDF3L01hbi12
+cy4tQmVlLXMxLWU5Lm1wND9ybGtleT1zaWh2NWI5cWZiMmg0NmF3NHdvN3Axbmo5JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-9</h2></button></a>
+
+
+</div>
+</div></div>
+</div></div></div>
+    <br>
+  <br>
+</body>
+</html>
+
