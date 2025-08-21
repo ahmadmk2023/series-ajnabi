@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="AR" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مسلسلات اجنبية</title>
+  <link href="https://raw.githubusercontent.com/aminemk640/Movies-free/refs/heads/main/00.png" rel="icon" type="image/x-icon">
+ 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     <!-- إضافة watched-icon -->
+    
+ </head>   
+<body>
+
+    <!----------  اكواد استايل القائمة  ------------>
+     <style>
+         body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+        }
+
+        .topnav { 
+        border-top : 3px solid #FFD700;  
+        z-index: 2; /* لضمان ظهوره فوق المحتوى */
+        position: fixed;
+        overflow: hidden;
+        border-radius:4px;
+        background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
+        top: 0;
+        height: 58px;
+        width: 100%;
+        box-shadow: 5px 5px 7px #fff;
+}  
+
+        .topnav a {
+            float: left;
+            color: #ffffff;
+            text-align: center;
+            padding: 13px 13px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+       .topnav a:focus, .topnav a:hover {
+ background: #ccc;
+    color: #000;
+    outline: none;
+    border: 2px solid #ff0066;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 40px #ff0066, 0 0 80px #ff0066, 0 0 160px #ff0066, 0 0 320px #ff0066;  
+}
+.topnav a:focus svg path,
+.topnav a:hover svg path {
+  fill: #000; /* تغيير لون الملء للمسار إلى الأسود */
+  outline: none; /* إزالة تأثير التركيز الافتراضي */
+  border-radius: 8px;
+  border: 2px solid #ff0066;
+}
+        .topnav-centered a {
+            font-family: "Airarabia", Sans-serif;
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;            
+            font-size: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        /* Responsive navigation menu (for mobile devices) */
+        @media screen and (max-width: 100%) {
+            .topnav a,
+            .topnav-right {
+                float: none;
+                display: block;
+            }
+
+            .topnav-centered a {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                color: #ffff;
+            }
+        }
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+   body {
+                height: 100%;
+                margin: auto;
+                position: relative;
+           background:#339a8a;
+             background-position: center;
+                align-items: center;
+                justify-content: center; 
+                font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+           
+            }
+
+           .button {
+            position: relative;
+            align:center;
+            display: inline-block; /* لجعل الزر عنصراً مستطيل الشكل */
+            padding:2px; /* تعيين الهامش الداخلي للزر */
+            border-radius: 8px; /* تدوير الزوايا لتصميم أفضل */
+            width: 155px;
+            height:210px; 
+            color: #fff;
+            margin: 6px;
+            font-weight: bold;
+            border: 2px solid #ccc;
+            background: #3c4a71; 
+            }
+          .button img {
+  background-size: cover; /* جعل الصورة تمتد لتغطي الحاوية بالكامل */
+    background-position: center;    
+    background-repeat: no-repeat; /* منع تكرار الصورة */
+    width: 100%; /* ضمان أن العرض 100% */
+    height: 190px; /* تعديل الارتفاع حسب الحاجة */
+    position: relative; /* إضافة لتحديد موضع العناصر داخل الحاوية */
+    border-radius: 8px;
+    margin-top: -15px;
+
+}
+
+
+       /* تأثير عند التركيز (للتحكم عن بُعد على Android TV) */
+   
+ .button:focus,.button:hover {
+    background: #ccc;
+    color:yellow;     font-weight: bold;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #ff0066;
+    transform: scale(1.1);
+    transition-delay: 0s, 1s;
+    box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+        }  
+            /* .ازالة شريط التمرير اسفل المدونة*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 7px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+    
+
+.Series-name {
+   padding: 2px;            
+   position: absolute; 
+    text-align: center;
+    font-size: 17px;
+    font-family: "Airarabia", Sans-serif;
+    font-weight: bold;
+    display: flex;
+    background-image: linear-gradient(132deg, #339a8a 0%, #3c4a71 100%);
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    margin-top: -18px;
+    width: 140px; /* عرض الحاوية */
+    height: 22px;
+        }
+       .Series-name {
+    direction: ltr;  /* تحديد اتجاه النص من اليمين لليسار */
+    text-align: right;  /* محاذاة النص إلى اليمين */
+  }
+   
+       a{
+color: black;
+text-decoration:none;
+}
+#al{
+color: yellow;
+text-decoration:none;
+
+}
+   main {
+    padding: 5px;
+    position: relative;
+    margin-top: 50px; /* تترك مساحة للشريط العلوي */
+    margin-bottom: 70px; /* تترك مساحة للقائمة السفلية */
+}
+        
+   
+        .tv-name-inner {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+  text-align: center;
+    font-size: 17px;
+    font-family: "Airarabia", Sans-serif;
+    font-weight: bold;
+
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+
+     /* شريط البحث */
+        #searchbar-container {
+            position: relative;
+            width: 90%; /* زيادة العرض ليتناسب مع الشاشات المختلفة */
+            max-width: 600px; /* تحديد أقصى عرض */
+            margin: 15px auto;
+            direction: rtl;
+            display: flex; /* لجعل الزر X بجانب شريط البحث */
+            align-items: center;
+        }
+
+        #searchbar {
+            width: 90%;
+            padding: 10px 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            height: 40px; /* ارتفاع مناسب */
+            border: 2px solid gold;
+            box-sizing: border-box;
+            display: none; /* إخفاء في البداية */
+            color: #000; /* لون النص داخل شريط البحث */
+            background-color: #1322;
+            transition: all 0.3s ease;
+        }
+
+        #searchbar:focus,
+        #searchbar:hover {
+            background: #ccc;
+            color: #000;
+            border-color: #ff0066;
+            box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+        }
+
+        #searchbar.show {
+            display: block; /* إظهار الشريط */
+        }
+
+        #close-icon {
+            background: #1322;
+            color: #fff; /* لون أيقونة الإغلاق */
+            border: 2px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #fff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 8px 10px;
+            margin-right: 5px; /* مسافة بين شريط البحث و زر الإغلاق */
+            display: none; /* إخفاء في البداية */
+            transition: all 0.3s ease;
+        }
+
+        #close-icon:focus,
+        #close-icon:hover {
+            background: #222;
+            color: #ff0066;
+            border-color: #ff0066;
+            box-shadow: 0 0 10px #ff0066;
+        }
+
+        #close-icon.show {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #no-results-message {
+            color: red;
+            font-family: 'Cairo', sans-serif;
+            margin-top: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+                </style>
+                
+                
+          <!-- Top navigation -->
+            <div class="topnav">
+               <!-- icon-reply -->
+<div class="topnav-centered">
+                 <a><h5> مسلسلات اجنبية </h5> </a></div>
+               <!-- icon-reply -->
+<a onclick="history.back()" tabindex="0" title="الرجوع" role="button">
+    <svg width="25" height="20" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path d="M209.4 39.5c-9.1-9.6-24.3-10-33.9-.9L33.8 173.2c-19.9 18.9-19.9 50.7 0 69.6L175.5 377.4c9.6 9.1 24.8 8.7 33.9-.9s8.7-24.8-.9-33.9L66.8 208 208.5 73.4c9.6-9.1 10-24.3 .9-33.9zM352 64c0-12.6-7.4-24.1-19-29.2s-25-3-34.4 5.4l-160 144c-6.7 6.1-10.6 14.7-10.6 23.8s3.9 17.7 10.6 23.8l160 144c9.4 8.5 22.9 10.6 34.4 5.4s19-16.6 19-29.2l0-64 32 0c53 0 96 43 96 96c0 30.4-12.8 47.9-22.2 56.7c-5.5 5.1-9.8 12-9.8 19.5c0 10.9 8.8 19.7 19.7 19.7c2.8 0 5.6-.6 8.1-1.9C494.5 467.9 576 417.3 576 304c0-97.2-78.8-176-176-176l-48 0 0-64z"></path>
+    </svg>
+</a>
+                   <!-- icon-reply -->
+                   
+                 <!-- icon-logo -->
+<a > <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px"viewBox="0 0 24 24" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M18 4l2 3h-3l-2-3h-2l2 3h-3l-2-3H8l2 3H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4m-6.75 11.25L10 18l-1.25-2.75L6 14l2.75-1.25L10 10l1.25 2.75L14 14l-2.75 1.25m5.69-3.31L16 14l-.94-2.06L13 11l2.06-.94L16 8l.94 2.06L19 11l-2.06.94z" fill="#fff"></path></svg>
+        </a>
+      
+   <!-- icon-logo -->
+                
+   <!-- icon-search -->                
+<div class="topnav-right">
+<a tabindex="1" href="javascript:void(0)" id="search-icon"><svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" width="25" height="25" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path fill="#fff" stroke-width="4" d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_"></path>
+            </svg></a></div> </div>
+  
+            
+       <main>     
+
+<div align="center" id="searchbar-container">
+    <input id="searchbar" 
+           onkeyup="search_animal();" 
+           type="text" 
+           name="search" 
+           placeholder="ابحث عن .... " 
+           tabindex="1">
+<button tabindex="1"id="close-icon"class="x">❌</button></div>
+<div align="center">
+
+                 <!-- ✅  زر الفيلم -->
+                        <button class="button"onclick="window.open('https://raw.githack.com/ahmadmk2023/series-ajnabi/main/Alien.Earth.html')">
+    <img src="https://resizing.flixster.com/_yvlKjwlOGKrZmvc-GNT7R2LRJw=/fit-in/705x460/v2/https://resizing.flixster.com/F-DapncwWWUAsdhUdVunOb4dJXU=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvODNkMTg2YmUtODVlMC00NjBiLThjYTMtNzQ1MDZlZTMwNThmLmpwZw==" alt="app tv"onerror="handleImageError(this)">
+     <div class="Series-name">
+        <div class="tv-name-inner1" >Alien Earth(2025)</div></div> 
+   </button> 
+             <!-- ✅  زر الفيلم -->
+             
+<!-- ✅  زر الفيلم -->
+             <button class="button"onclick="window.open('https://raw.githack.com/ahmadmk2023/series-ajnabi/main/Man%20vs%20Bee.html')">
+    <img src="https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==" alt="app tv"onerror="handleImageError(this)">
+     <div class="Series-name">
+<div class="tv-name-inner1" >Man vs Bee(2022)</div></div> 
+   </button> 
+      <!-- ✅  زر الفيلم -->
+
+                      
+
+
+
+
+
+      
+   <h1 id="no-results" style="display: none; color: red; text-align: center; font-size: 25px; font-weight: bold;">لم يتم العثور على نتائج⚠️</h1>
+</div>
+ </main> 
+
+<audio id="hoverSound" src="https://github.com/ahmadmk2023/Movies-free1/raw/refs/heads/main/mp3/btn-hover01.mp3" preload="auto"></audio>
+
+<script>
+    // تشغيل الصوت عند التأشير أو التركيز
+    const sound = document.getElementById('hoverSound');
+    const categories = document.querySelectorAll('.topnav a ,.button,#close-icon');
+
+    categories.forEach(cat => {
+      cat.addEventListener('mouseenter', () => {
+        sound.currentTime = 0;
+        sound.play();
+      });
+      cat.addEventListener('focus', () => {
+        sound.currentTime = 0;
+        sound.play();
+      });
+    });
+
+  </script>
+   
+
+
+
+ 
+<!-- JavaScript -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchbar = document.getElementById("searchbar");
+    const closeIcon = document.getElementById("close-icon");
+    const searchIcon = document.getElementById("search-icon");
+    const noResults = document.getElementById("no-results");
+    const buttons = document.querySelectorAll(".button");
+
+    if (searchIcon && searchbar && closeIcon && noResults) {
+        // ✅ فتح شريط البحث عند الضغط على أيقونة البحث
+        searchIcon.addEventListener("click", function () {
+            searchbar.classList.add("show");
+            closeIcon.classList.add("show");
+            searchbar.focus();
+        });
+
+        // ✅ إغلاق شريط البحث عند الضغط على زر الإغلاق أو خارج شريط البحث
+        function closeSearchBar() {
+            if (searchbar.classList.contains("show")) {
+                searchbar.classList.remove("show");
+                closeIcon.classList.remove("show");
+                noResults.style.display = "none";
+                searchbar.value = ""; // مسح البحث
+                buttons.forEach(button => button.classList.remove("hidden")); // إظهار جميع الأزرار
+            }
+        }
+
+        closeIcon.addEventListener("click", closeSearchBar);
+        document.addEventListener("click", function (event) {
+            if (!searchbar.contains(event.target) && !searchIcon.contains(event.target) && !closeIcon.contains(event.target)) {
+                closeSearchBar();
+            }
+        });
+
+        // ✅ إغلاق شريط البحث عند الضغط على زر Escape
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                event.preventDefault(); // منع أي تأثيرات أخرى
+                closeSearchBar();
+            }
+        });
+
+        // ✅ البحث وإظهار النتائج
+        searchbar.addEventListener("input", function () {
+            const input = searchbar.value.trim().toLowerCase();
+            let found = false;
+
+            buttons.forEach(button => {
+                if (button.textContent.toLowerCase().includes(input)) {
+                    button.classList.remove("hidden");
+                    found = true;
+                } else {
+                    button.classList.add("hidden");
+                }
+            });
+
+            // ✅ إظهار أو إخفاء رسالة "لم يتم العثور على نتائج"
+            noResults.style.display = found ? "none" : "block";
+        });
+    }
+});
+
+
+    //✅ دالة التعامل مع خطأ تحميل الصورة
+    function handleImageError(img) {
+        // تغيير مصدر الصورة إلى صورة بديلة في حال حدوث خطأ في تحميل الصورة الأصلية
+        img.src = "https://raw.githubusercontent.com/aminemk640/Movies-free/refs/heads/main/00.png";
+        img.onerror = null; // إيقاف محاولة تحميل الصورة مرة أخرى
+    }
+    
+
+    
+</script>
+<script>
+
+    //✅ يفضل وضعه بعد إغلاق $(document).ready(...)
+
+$(document).on('keydown', function(event) {
+    // التحقق من زر "X" أو "الرجوع" في جهاز التحكم (عادةً Backspace أو Escape)
+    if (event.key === 'Backspace' || event.key === 'Escape' || event.keyCode === 461) {
+        // keyCode 461 هو رمز شائع لزر العودة في Android TV
+        history.back(); // العودة إلى الصفحة السابقة في السجل
+        event.preventDefault(); // منع السلوك الافتراضي للمتصفح (لتجنب الرجوع المزدوج أو إغلاق التطبيق)
+    }
+}); 
+</script>
+</body>
+</html>
+
+
+
+
