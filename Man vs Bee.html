@@ -1,148 +1,298 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="AR" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Man vs Bee</title>
-    <link href="https://cdn.icon-icons.com/icons2/125/PNG/96/movies_drive_20265.png" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
+    <title>Alien Earth مسلسل</title>
+  <link href="https://raw.githubusercontent.com/aminemk640/Movies-free/refs/heads/main/00.png" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <!-- إضافة jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     <!-- إضافة watched-icon -->
+    <script src="https://raw.githack.com/ahmadmk2023/code-java/main/watched-icon-V2.js"></script>  
+ </head>   
+<body>
+
+    <!----------  اكواد استايل القائمة  ------------>
+    <!----------  اكواد استايل القائمة  ------------>
+     <style>
         body {
-            background: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
-            color: #fff;
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            direction: ltr;
-        }
-        
-        .header {
+            font-family: 'Montserrat', 'Cairo', Arial, sans-serif;
+            font-weight: 400; /* قيمة صحيحة للوزن */
+            background-color: #339a8a; /* لون موحد للخلفية */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            flex-direction: column;
+            min-height: 100vh; /* لضمان أن الجسم يملأ الشاشة بالكامل */
         }
 
-        .header h1 {
-            font-size: 24px;
-            margin: 0;
+        /* شريط التمرير */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-
-        .header a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent; 
-            border-radius: 8px; 
-            padding: 5px 10px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 7px;
         }
-
-        .header a:focus,
-        .header a:hover {
-            box-shadow: 0 0 15px #ff0066, 0 0 30px #ff0066, 0 0 45px #ff0066, 0 0 60px #ff0066;
-            border-color: gold;
+        ::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+            border-radius: 10px;
         }
-
-        .header a:focus svg path,
-        .header a:hover svg path {
-            fill: gold;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b30000;
         }
-
-        .container {
-            padding: 20px;
-            margin-top: -30px;
-        }
-
-        .episodes-grid {
-               display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-      justify-items: center; /* الحلقات في الوسط */
-    padding: 10px;
-        }
-
-        .episode-button {
-            background: #2c3e50;
-            border: 2px solid transparent;
-            border-radius: 8px;
+        .topnav { 
+        border-top : 3px solid #FFD700;  
+        z-index: 10; /* لضمان ظهوره فوق المحتوى */
+        position: fixed;
             overflow: hidden;
-            cursor: pointer;
+        border-radius:4px;
+       border-radius: 0 0 4px 4px; /* تعديل الزوايا لتكون سفلية فقط */
+            background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
+        top: 0;
+        height: 58px;
+        width: 100%;
+        box-shadow: 5px 5px 7px #fff;
+}  
+
+        .topnav a {
+            float: left;
+            color: #ffffff;
+            text-align: center;
+            padding: 13px 13px;
+            text-decoration: none;
+            font-size: 16px;            
+            transition: all 0.3s ease; /* إضافة انتقال سلس */
+            align-items: center;
+            justify-content: center;border-radius: 8px; /* لتكون متناسقة مع تأثير التركيز */
+        }
+ .topnav a:focus,
+        .topnav a:hover {
+            background: #ccc;
+            color: #000;
+            outline: none;
+            border: 2px solid #ff0066;
+            box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 40px #ff0066;
+        }
+
+        .topnav a:focus svg path,
+        .topnav a:hover svg path {
+            fill: #000;
+        }
+        .topnav-centered a {
+            font-family: "Airarabia", Sans-serif;
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;            
+            font-size: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        /* Responsive navigation menu (for mobile devices) */
+        @media screen and (max-width: 100%) {
+            .topnav a,
+            .topnav-right {
+                float: none;
+                display: block;
+            }
+       .topnav-centered h5 {
+            font-family: 'Cairo', sans-serif; /* استخدام خط القاهرة للعناوين العربية */
+            font-size: 20px;
+            color: #ffffff;
+            margin: 0; /* إزالة الهامش الافتراضي */
+        }
+            .topnav-centered a {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                color: #ffff;
+            }
+        }
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+   body {
+                height: 100%;
+                margin: auto;
+                position: relative;
+              background-image: linear-gradient(132deg, #339a8a 0%, #3c4a71 100%);
+             background-position: center;
+                align-items: center;
+                justify-content: center; 
+                font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+           
+            }
+
+           .button {
+            position: relative;
+            align:center;
+            display: inline-block; /* لجعل الزر عنصراً مستطيل الشكل */
+            padding:0px; /* تعيين الهامش الداخلي للزر */
+             border-radius: 8px;
             width: 155px; /* عرض ثابت */
             height: 255px; /* ارتفاع ثابت */
-            height: auto; 
-            text-align: center;
-          position: relative;
-            align:center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: #fff;
-            justify-self: center; 
-        }
+            border: 2px solid #ccc;
+            background: #3c4a71;
+            margin: 6px;
+           justify-content: space-between; /* لتوزيع المحتوى داخل الزر */
+            overflow: hidden; /* لإخفاء أي جزء من الاسم يتجاوز الحاوية */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* ظل للأزرار */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-        .episode-button:hover,
-        .episode-button:focus {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border-color: gold;
-        }
-
-        .episode-button img {
+            }
+        .button img {
             width: 100%;
-            height: 170px;
-            display: block;
-            border-bottom: 2px solid #555;
-            object-fit: cover; 
+            height: 150px; /* ارتفاع الصورة ثابت */
+            border-radius: 4px 4px 0 0; /* زوايا دائرية علوية فقط */
+            display: block; /* لإزالة أي مسافة إضافية تحت الصورة */
+        }
+ .button:focus,
+        .button:hover {
+            transform: scale(1.05); /* تكبير طفيف عند التركيز/التمرير */
+            outline: none;
+            border-color: #ff0066;
+            box-shadow: 0 0 15px #ff0066, 0 0 30px #ff0066;
         }
 
-        .episode-info {
-            padding: 10px;
-        }
-
-        .episode-info h2 {
-            font-size: 16px;
-            margin: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
+  
+   /* أيقونة المشاهدة */
         .watched-icon {
             position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 30px;
-            height: 30px;
             background: #fff;
-            border-radius: 50%;
+            border-radius: 4px;
+            border: 2px solid #ff0066;
+            box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FFD700;
+            top: 0;
+            right: 0; /* تغيير الموقع لليمين العلوي */
+            width: 25px; /* تكبير الحجم قليلاً */
+            height: 25px;
             display: none;
+            display: flex; /* لتوسيط المحتوى داخل الأيقونة */
             align-items: center;
             justify-content: center;
+            font-size: 18px; /* حجم أيقونة العين */
+            color: #ff0066; /* لون العين */            
+            display: none; /* Initially hide the watched icon */
+
+        }
+.link,.mov-name {
+   padding: 1px;
+    text-align: center;
+    font-size: 18px;
+            color: gold; /* لون ذهبي */
+    font-family: "Airarabia", Sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 8px;
+    top:-10px;
+    border-top: 2px solid #d0368a;
+    margin-top:4px;
+    width: 149px; /* عرض الحاوية */
+    height: 20px;
+        }
+       .mov-name {
+    direction: ltr;  /* تحديد اتجاه النص من اليمين لليسار */
+    text-align: right;  /* محاذاة النص إلى اليمين */
+  }
+   
+.number-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 5px 0;
+            background-color: #3c4a71; /* خلفية لأرقام السيرفرات */
+            border-top: 1px solid #2a3553;
         }
 
-        .watched-icon i {
-            color: #000;
-            font-size: 16px;
-        }
-
-        #searchbar-container {
-            position: relative;
-            width: 90%;
-            max-width: 600px;
-            margin: 15px auto;
-            direction: rtl;
+        .number {
+            width: 30px;
+            height: 30px;
+            background: #339a8a;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            font-size: 14px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
             display: flex;
             align-items: center;
-            transition: all 0.5s ease;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 8;
+            transition: all 0.3s ease;
+        }
+
+        
+       /* تأثير عند التركيز (للتحكم عن بُعد على Android TV) */
+   
+ .number:focus,
+        .number:hover {
+            background: #ccc;
+            color: #000;
+            border-radius: 8px;
+            outline: none;
+            border: 2px solid #ff0066;
+            transform: scale(1.3); /* تأثير تكبير أقل حدة */
+            box-shadow: 0 0 8px #ff0066, 0 0 16px #ff0066;
+        }
+
+
+       a{
+color: black;
+text-decoration:none;
+}
+#al{
+color: yellow;
+text-decoration:none;
+
+}
+        main {
+            padding: 5px;
+            margin-top: 50px; /* تترك مساحة للشريط العلوي */
+            margin-bottom: 70px; /* تترك مساحة للقائمة السفلية */
+            flex-grow: 1; /* لتوسيع المحتوى ليملأ المساحة المتاحة */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        tv-name-inner {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+ font-family: "Airarabia", Sans-serif;
+    font-weight: bold;
+
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+        /* شريط البحث */
+        #searchbar-container {
+            position: relative;
+            width: 90%; /* زيادة العرض ليتناسب مع الشاشات المختلفة */
+            max-width: 600px; /* تحديد أقصى عرض */
+            margin: 15px auto;
+            direction: rtl;
+            display: flex; /* لجعل الزر X بجانب شريط البحث */
+            align-items: center;
         }
 
         #searchbar {
@@ -151,439 +301,410 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 5px;
-            height: 40px;
-            border: 2px solid #ccc;
+            height: 40px; /* ارتفاع مناسب */
+            border: 2px solid gold;
             box-sizing: border-box;
-            display: none;
-            color: #333;
+            display: none; /* إخفاء في البداية */
+            color: #333; /* لون النص داخل شريط البحث */
             background-color: #f0f0f0;
-            transition: all 0.4s ease-in-out;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+            transition: all 0.3s ease;
         }
 
         #searchbar:focus,
         #searchbar:hover {
             background: #fff;
             color: #000;
-            border-color: gold;
-            box-shadow:
-                0 0 10px rgba(255, 215, 0, 0.7), 
-                0 0 20px rgba(255, 0, 102, 0.5), 
-                inset 0 2px 4px rgba(0, 0, 0, 0.3);
+            border-color: #ff0066;
+            box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
         }
 
         #searchbar.show {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out; 
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            display: block; /* إظهار الشريط */
         }
 
         #close-icon {
-            background: linear-gradient(135deg, #ff0066, #ff8c00); 
-            color: #fff;
-            border: none;
+            background: #111;
+            color: #fff; /* لون أيقونة الإغلاق */
+            border: 2px solid #000;
             border-radius: 5px;
+            box-shadow: 0 0 5px #fff;
             cursor: pointer;
             font-size: 16px;
             padding: 8px 10px;
-            margin-right: 5px;
-            display: none;
+            margin-right: 5px; /* مسافة بين شريط البحث و زر الإغلاق */
+            display: none; /* إخفاء في البداية */
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         #close-icon:focus,
         #close-icon:hover {
-            box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
-            transform: scale(1.05); 
-            background: linear-gradient(135deg, #ff8c00, #ff0066);
+            background: #222;
+            color: #ff0066;
+            border-color: #ff0066;
+            box-shadow: 0 0 10px #ff0066;
         }
 
         #close-icon.show {
             display: block;
-            animation: fadeInButton 0.5s ease-in-out;
-        }
-
-        @keyframes fadeInButton {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         .hidden {
             display: none;
         }
 
-        #no-results {
-            color: #ff0066;
-            font-family: 'Arial', sans-serif;
-            margin-top: 10px;
+        #no-results-message {
+            color: red;
+            font-family: 'Cairo', sans-serif;
+            margin-top: 20px;
             font-size: 25px;
             font-weight: bold;
             text-align: center;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-            animation: pulse 1.5s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
 
-        .select-server-button {
-            width: 100%;
-            background: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 8px;
-            border-radius: 5px;
-            margin-top: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: none; /* مخفي في البداية */
-        }
-        .select-server-button:hover, .select-server-button:focus {
-            background: #c0392b;
-            box-shadow: 0 0 10px #fff;
-        }
+         
+.plus {
+    position:  absolute; /* تثبيت العنصر في الشاشة */
+    margin-top: 40px; /* تترك مساحة للشريط العلوي */
+    margin-bottom: 5px; /* تترك مساحة للقائمة السفلية */
+    left: 50%; /* توسيطه أفقيًا */
+    transform: translateX(-50%); /* تصحيح التوسيط */
+    width: 220px; /* عرض العنصر */
+    height: 35px; /* ارتفاع العنصر */
+      background: #3c4a71;        
+      z-index: -1; /* لضمان ظهوره فوق المحتوى */
+ /* لون الخلفية */
+    border-radius: 8px; /* زوايا دائرية */
+    box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+    display: flex; /* استخدام flexbox لتوسيط المحتوى */
+    justify-content: center; /* توسيط النص أفقيًا */
+    align-items: center; /* توسيط النص عموديًا */
+    color: #fff; /* لون النص */
+    padding: 5px;
+    z-index: 0; /* التأكد من أنه يظهر فوق المحتويات الأخرى */
+}
 
-        .server-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            display: none; /* مخفي في البداية */
-            flex-direction: column;
-            gap: 5px;
-            animation: slideUp 0.3s ease-out;
-            transform: translateY(100%);
-        }
 
-        .server-container.show {
-            display: flex;
-            transform: translateY(0);
-        }
-        
-        .server-button {
-            background: #4a69bd;
-            color: #fff;
-            border: none;
-            padding: 8px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: background 0.3s;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .server-button:hover, .server-button:focus {
-            background: #60a3bc;
-            box-shadow: 0 0 10px #fff;
-            transform: scale(1.05);
-        }
-    </style>
-</head>
-<body>
-
-<header class="header">
-    <div class="header-right">
-       <a onclick="history.back()" tabindex="0" title="الرجوع" role="button">
-            <svg width="25" height="20" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path d="M209.4 39.5c-9.1-9.6-24.3-10-33.9-.9L33.8 173.2c-19.9 18.9-19.9 50.7 0 69.6L175.5 377.4c9.6 9.1 24.8 8.7 33.9-.9s8.7-24.8-.9-33.9L66.8 208 208.5 73.4c9.6-9.1 10-24.3 .9-33.9zM352 64c0-12.6-7.4-24.1-19-29.2s-25-3-34.4 5.4l-160 144c-6.7 6.1-10.6 14.7-10.6 23.8s3.9 17.7 10.6 23.8l160 144c9.4 8.5 22.9 10.6 34.4 5.4s19-16.6 19-29.2l0-64 32 0c53 0 96 43 96 96c0 30.4-12.8 47.9-22.2 56.7c-5.5 5.1-9.8 12-9.8 19.5c0 10.9 8.8 19.7 19.7 19.7c2.8 0 5.6-.6 8.1-1.9C494.5 467.9 576 417.3 576 304c0-97.2-78.8-176-176-176l-48 0 0-64z"></path>
-            </svg>
-        </a>
-    </div>
-    <div class="header-center">
-        <h1>Man vs Bee</h1>
-    </div>
-    <div class="header-left">
-        <a tabindex="1" href="javascript:void(0)" id="search-icon">
-            <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" width="25" height="25" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path fill="#fff" stroke-width="4" d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14 s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0 C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_"></path>
-            </svg>
-        </a>
-    </div>
-</header>
-<div align="center" >
-<main class="container">
-    <div align="center" id="searchbar-container">
-        <input id="searchbar"
-                type="text"
-                name="search"
-                placeholder="ابحث عن افـــلام ...."
-                tabindex="1">
-        <button tabindex="1" id="close-icon" class="x">❌</button>
-    </div>
+.plus:hover,.plus:focus{
+    background: #222;
+    color: #ff0066;
+    border: 3px solid #ff0066;
+    box-shadow: 0 0 10px #ffff, 0 0 20px #ffff;
+}
+.h1 {
+   padding: 4px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Airarabia", Sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+ margin-top: 5px; /* تترك مساحة للشريط العلوي */
+    margin-bottom: 10px; /* تترك مساحة للقائمة السفلية */
     
-    <div class="episodes-grid" id="episodes-list">
-    </div>
-</main>
-</div>
-<h1 id="no-results" style="display: none; color: #fff; text-align: center; font-size: 20px; font-weight: bold;">لم يتم العثور على نتائج⚠️</h1>
-    
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const episodesData = [
-            {
-                episode: 1,
-                title: "الحلقة 1",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "FHD",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvZXM5bXM3YXYwZzNqcmd4OGI2NnR2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT1vYXplMmpuOThobWg4bjAyc3p5ZHExMzNlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    },
-                    {
-                        name: "HD",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMWZjMTAwYXJ2ZTFrcG9pMmV3a2Z2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT0xNGFhODhsbjZtaDgzc21td25zZ2Qxa2FwJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    },
-                    {
-                        name: "SD",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMWNnOGV2NmZ1NmF3OG45ZmZnd3N6L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT05dnZkMGc0Z3E5cW83c21rbDBwaGc3bW53JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 2,
-                title: "الحلقة 2",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMGZyc29iamJvYTZ1Nmx0MzF5OTAyL01hbi12cy4tQmVlLXMxLWUyLm1wND9ybGtleT0xeGNmM29mZ3Y0bG1nbm54cmhidGRyaWljJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 3,
-                title: "الحلقة 3",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcDQzOGZveXkwdGRra2xvYWFma21tL01hbi12cy4tQmVlLXMxLWUzLm1wND9ybGtleT04dWY4eTludmRlbHA0bHppc2NybmpqOWJ2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 4,
-                title: "الحلقة 4",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcTE4OTJ5cHVidWg4NjZ2eTUycWhhL01hbi12cy4tQmVlLXMxLWU0Lm1wND9ybGtleT0zZzczbHlpbXFpcXdyZjIxYTV5dGpucHUyJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 5,
-                title: "الحلقة 5",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvc2F3dTF3aXg2a212b3NoeW9namhlL01hbi12cy4tQmVlLXMxLWU1Lm1wND9ybGtleT1yc3VudzEyOW1qMWdrZ3hmZWF0bnc3anloJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 6,
-                title: "الحلقة 6",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvNGI0dndvMXJxOW5iMGQ4Z3BkbGpnL01hbi12cy4tQmVlLXMxLWU2Lm1wND9ybGtleT11MWRnYTM1OWxmeDEyMjRzZ2h3cmF1d2dlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 7,
-                title: "الحلقة 7",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvb252NThuZTJlZGFoOTE4cjk5c282L01hbi12cy4tQmVlLXMxLWU3Lm1wND9ybGtleT03cmFoZ3JyYm5maXJocmNtcXdsNmphY2d2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 8,
-                title: "الحلقة 8",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMG8zcXRscTd2engxdTU1d2Z2dGdqL01hbi12cy4tQmVlLXMxLWU4Lm1wND9ybGtleT1sc3ZrNno3NHYwenZvdW15aXBycWljeWZzJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            },
-            {
-                episode: 9,
-                title: "الحلقة 9",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
-                servers: [
-                    {
-                        name: "سيرفر 1",
-                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvd2k1NGd4MTkzdnBvemVsdXQ4bDF3L01hbi12cy4tQmVlLXMxLWU5Lm1wND9ybGtleT1zaWh2NWI5cWZiMmg0NmF3NHdvN3Axbmo5JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
-                    }
-                ]
-            }
-        ];
+        }
+               </style>
+                
+                
+          <!-- Top navigation -->
+            <div class="topnav">
+               <!-- icon-reply -->
+<div class="topnav-centered">
+                 <a><h5> Alien Earth مسلسل</h5> </a></div>
+               <!-- icon-reply -->
 
-        const episodesGrid = document.getElementById('episodes-list');
-
-        episodesData.forEach(episode => {
-            const episodeContainer = document.createElement('div');
-            episodeContainer.className = 'episode-button';
-            episodeContainer.setAttribute('tabindex', '0'); 
+                  <!-- icon-reply -->
+<a onclick="history.back()" tabindex="0" title="الرجوع" role="button">
+    <svg width="25" height="20" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path d="M209.4 39.5c-9.1-9.6-24.3-10-33.9-.9L33.8 173.2c-19.9 18.9-19.9 50.7 0 69.6L175.5 377.4c9.6 9.1 24.8 8.7 33.9-.9s8.7-24.8-.9-33.9L66.8 208 208.5 73.4c9.6-9.1 10-24.3 .9-33.9zM352 64c0-12.6-7.4-24.1-19-29.2s-25-3-34.4 5.4l-160 144c-6.7 6.1-10.6 14.7-10.6 23.8s3.9 17.7 10.6 23.8l160 144c9.4 8.5 22.9 10.6 34.4 5.4s19-16.6 19-29.2l0-64 32 0c53 0 96 43 96 96c0 30.4-12.8 47.9-22.2 56.7c-5.5 5.1-9.8 12-9.8 19.5c0 10.9 8.8 19.7 19.7 19.7c2.8 0 5.6-.6 8.1-1.9C494.5 467.9 576 417.3 576 304c0-97.2-78.8-176-176-176l-48 0 0-64z"></path>
+    </svg>
+</a>
+                   <!-- icon-reply -->
+                   
+                 <!-- icon-logo -->
+<a > <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px"viewBox="0 0 24 24" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M18 4l2 3h-3l-2-3h-2l2 3h-3l-2-3H8l2 3H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4m-6.75 11.25L10 18l-1.25-2.75L6 14l2.75-1.25L10 10l1.25 2.75L14 14l-2.75 1.25m5.69-3.31L16 14l-.94-2.06L13 11l2.06-.94L16 8l.94 2.06L19 11l-2.06.94z" fill="#fff"></path></svg>
+        </a>
+      
+   <!-- icon-logo -->
+                
+   <!-- icon-search -->                
+<div class="topnav-right">
+<a tabindex="1" href="javascript:void(0)" id="search-icon"><svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" width="25" height="25" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path fill="#fff" stroke-width="4" d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_"></path>
+            </svg></a></div> </div>
+  
             
-            const storageKey = `man_vs_bee_episode-${episode.episode}-watched`;
-            const isWatched = localStorage.getItem(storageKey) === 'true';
+       <main>     
 
-            episodeContainer.innerHTML = `
-                <div class="watched-icon" style="display: ${isWatched ? 'flex' : 'none'};">
-                    <i class="fa-solid fa-check-to-slot"></i>
-                </div>
-                <img src="${episode.image}" alt="Episode ${episode.episode} thumbnail">
-                <div class="episode-info">
-                    <h2>Episode ${episode.episode}</h2>
-                </div>
-                <button class="select-server-button">اختر سيرفر المشاهدة</button>
-                <div class="server-container"></div>
-            `;
+<div align="center" id="searchbar-container">
+    <input id="searchbar" 
+           onkeyup="search_animal();" 
+           type="text" 
+           name="search" 
+           placeholder="ابحث عن افـــلام ...." 
+           tabindex="1">
+<button tabindex="1"id="close-icon"class="x">❌</button></div>
+<div align="center">
+              <!--+++++++++++++++++-->
+              <div class="section" data-section="aflam-arabi-01">
+        <!--+++++++++++++++++--> 
+        
+                
+                     <!-- ✅-- زر الحلقة  --✅-->
+                              <button class="button">
+    <img src="https://resizing.flixster.com/_yvlKjwlOGKrZmvc-GNT7R2LRJw=/fit-in/705x460/v2/https://resizing.flixster.com/F-DapncwWWUAsdhUdVunOb4dJXU=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvODNkMTg2YmUtODVlMC00NjBiLThjYTMtNzQ1MDZlZTMwNThmLmpwZw==" alt="app tv"onerror="handleImageError(this)">
+     <div class="mov-name">
+        <div class="tv-name-inner" >episodes-1-الحلقة </div></div> 
+        <div class="link">سيرفرات المشاهدة</div> 
+           <div class="number-container">
+<div class="number" 
+   data-link="intent://dl.dropbox.com/scl/fi/r8avrs7edeu3jcc221iq1/Alien.Earth.S01E01.mp4?rlkey=jbo004wnhpq4q391ka43jdxig&st=ne3u2t0p&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn1" 
+     tabindex="1">1</div>
 
-            episodesGrid.appendChild(episodeContainer);
+<div class="number" 
+     data-link="intent://hls2-cdn20.streamupcdn.xyz/hls/rXypG1OlCk6g4xlbmVhLxSN0Yv6bxD/master.m3u8#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn2" 
+     tabindex="1">2</div>
+     
+<div class="number" 
+         data-link="intent://dl.dropbox.com/scl/fi/r8avrs7edeu3jcc221iq1/Alien.Earth.S01E01.mp4?rlkey=jbo004wnhpq4q391ka43jdxig&st=ne3u2t0p&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn3" 
+     tabindex="1">3</div></div ></button> 
+                     <!-- ✅-- زر الحلقة  --✅-->
+                              <button class="button">
+    <img src="https://resizing.flixster.com/_yvlKjwlOGKrZmvc-GNT7R2LRJw=/fit-in/705x460/v2/https://resizing.flixster.com/F-DapncwWWUAsdhUdVunOb4dJXU=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvODNkMTg2YmUtODVlMC00NjBiLThjYTMtNzQ1MDZlZTMwNThmLmpwZw==" alt="app tv"onerror="handleImageError(this)">
+     <div class="mov-name">
+        <div class="tv-name-inner" >episodes-2-الحلقة </div></div> 
+        <div class="link">سيرفرات المشاهدة</div> 
+           <div class="number-container">
+<div class="number" 
+   data-link="intent://dl.dropbox.com/scl/fi/clk1aeo8kh8ffvty6pryz/Alien.Earth.S01E02.mp4?rlkey=mlgaxbpxoxrnn8bsycy33iuhw&st=fq2ndt4v&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn1" 
+     tabindex="1">1</div>
 
-            const selectButton = episodeContainer.querySelector('.select-server-button');
-            const serverContainer = episodeContainer.querySelector('.server-container');
+<div class="number" 
+     data-link="intent://dl.dropbox.com/scl/fi/clk1aeo8kh8ffvty6pryz/Alien.Earth.S01E02.mp4?rlkey=mlgaxbpxoxrnn8bsycy33iuhw&st=fq2ndt4v&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn2" 
+     tabindex="1">2</div>
+     
+<div class="number" 
+         data-link="intent://dl.dropbox.com/scl/fi/clk1aeo8kh8ffvty6pryz/Alien.Earth.S01E02.mp4?rlkey=mlgaxbpxoxrnn8bsycy33iuhw&st=fq2ndt4v&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn3" 
+     tabindex="1">3</div></div ></button> 
+                     <!-- ✅-- زر الحلقة  --✅-->
+<button class="button">
+    <img src="https://resizing.flixster.com/_yvlKjwlOGKrZmvc-GNT7R2LRJw=/fit-in/705x460/v2/https://resizing.flixster.com/F-DapncwWWUAsdhUdVunOb4dJXU=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvODNkMTg2YmUtODVlMC00NjBiLThjYTMtNzQ1MDZlZTMwNThmLmpwZw==" alt="app tv"onerror="handleImageError(this)">
+     <div class="mov-name">
+        <div class="tv-name-inner" >episodes-3-الحلقة </div></div> 
+        <div class="link">سيرفرات المشاهدة</div> 
+           <div class="number-container">
+<div class="number" 
+   data-link="intent://dl.dropbox.com/scl/fi/t0p0d2axkfdx0wbuhrbki/Alien.Earth.S01E03.mp4?rlkey=8ty4nukmcg9zfsugk44ez95xy&st=jnxjuowf&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn1" 
+     tabindex="1">1</div>
 
-            // حدث النقر على أي مكان داخل الحلقة
-            episodeContainer.addEventListener('click', () => {
-                // إغلاق أي قوائم سيرفرات أخرى مفتوحة
-                document.querySelectorAll('.server-container.show').forEach(openContainer => {
-                    if (openContainer !== serverContainer) {
-                        openContainer.classList.remove('show');
-                        openContainer.innerHTML = '';
-                    }
-                });
+<div class="number" 
+     data-link="intent://dl.dropbox.com/scl/fi/t0p0d2axkfdx0wbuhrbki/Alien.Earth.S01E03.mp4?rlkey=8ty4nukmcg9zfsugk44ez95xy&st=jnxjuowf&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn2" 
+     tabindex="1">2</div>
+     
+<div class="number" 
+         data-link="intent://dl.dropbox.com/scl/fi/t0p0d2axkfdx0wbuhrbki/Alien.Earth.S01E03.mp4?rlkey=8ty4nukmcg9zfsugk44ez95xy&st=jnxjuowf&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn3" 
+     tabindex="1">3</div></div ></button> 
+                     <!-- ✅-- زر الحلقة  --✅-->
+                     <button class="button">
+    <img src="https://resizing.flixster.com/_yvlKjwlOGKrZmvc-GNT7R2LRJw=/fit-in/705x460/v2/https://resizing.flixster.com/F-DapncwWWUAsdhUdVunOb4dJXU=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvODNkMTg2YmUtODVlMC00NjBiLThjYTMtNzQ1MDZlZTMwNThmLmpwZw==" alt="app tv"onerror="handleImageError(this)">
+     <div class="mov-name">
+        <div class="tv-name-inner" >episodes-4-الحلقة </div></div> 
+        <div class="link">سيرفرات المشاهدة</div> 
+           <div class="number-container">
+<div class="number" 
+   data-link="intent://dl.dropbox.com/scl/fi/cffmr3i8nhusyyv3fz6nn/Alien.Earth.S01E04.ts?rlkey=isgbff5cji7kfm3v1zitoabhl&st=g8t1jcog&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn1" 
+     tabindex="1">1</div>
 
-                // إظهار زر "اختر سيرفر المشاهدة"
-                selectButton.style.display = 'block';
-            });
+<div class="number" 
+     data-link="intent://dl.dropbox.com/scl/fi/cffmr3i8nhusyyv3fz6nn/Alien.Earth.S01E04.ts?rlkey=isgbff5cji7kfm3v1zitoabhl&st=g8t1jcog&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn2" 
+     tabindex="1">2</div>
+     
+<div class="number" 
+         data-link="intent://dl.dropbox.com/scl/fi/cffmr3i8nhusyyv3fz6nn/Alien.Earth.S01E04.ts?rlkey=isgbff5cji7kfm3v1zitoabhl&st=g8t1jcog&dl=1#Intent;scheme=https;package=co.wuffy.player;end" onclick="playStream(this)" 
+     id="btn3" 
+     tabindex="1">3</div></div ></button> 
+                     <!-- ✅-- زر الحلقة  --✅-->
 
-            // حدث النقر على زر "اختر سيرفر المشاهدة"
-            selectButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // منع الحدث من الوصول إلى الحاوية الرئيسية
-                const isShowing = serverContainer.classList.toggle('show');
-                if (isShowing) {
-                    serverContainer.innerHTML = '';
-                    episode.servers.forEach(server => {
-                        const serverLink = document.createElement('a');
-                        serverLink.href = server.url;
-                        serverLink.className = 'server-button';
-                        serverLink.setAttribute('rel', 'nofollow');
-                        serverLink.setAttribute('tabindex', '0');
-                        serverLink.textContent = server.name;
-                        serverContainer.appendChild(serverLink);
+                     <!-- ✅-- زر الحلقة  --✅-->                     
+                     
+                     <!-- ✅-- زر الحلقة  --✅-->
 
-                        serverLink.addEventListener('click', (linkEvent) => {
-                            linkEvent.stopPropagation(); // منع الحدث من الوصول إلى الحاوية
-                            localStorage.setItem(storageKey, 'true');
-                            episodeContainer.querySelector('.watched-icon').style.display = 'flex';
-                            serverContainer.classList.remove('show');
-                        });
-                    });
-                } else {
-                    serverContainer.innerHTML = '';
-                }
-            });
+                     <!-- ✅-- زر الحلقة  --✅--> 
+                     
+                     <!-- ✅-- زر الحلقة  --✅-->
 
-            // إخفاء القوائم عند النقر في أي مكان آخر
-            document.addEventListener('click', (event) => {
-                if (!episodeContainer.contains(event.target)) {
-                    serverContainer.classList.remove('show');
-                    serverContainer.innerHTML = '';
-                }
-            });
-        });
+                     <!-- ✅-- زر الحلقة  --✅-->
+                     
+                     <!-- ✅-- زر الحلقة  --✅-->
 
-        // Search bar functionality remains the same
-        const searchbar = document.getElementById("searchbar");
-        const closeIcon = document.getElementById("close-icon");
-        const searchIcon = document.getElementById("search-icon");
-        const noResults = document.getElementById("no-results");
-        const allEpisodes = document.querySelectorAll(".episode-button");
+                     <!-- ✅-- زر الحلقة  --✅-->                     
+                     
+                     <!-- ✅-- زر الحلقة  --✅-->
 
-        searchIcon.addEventListener("click", function (event) {
-            event.stopPropagation(); 
+                     <!-- ✅-- زر الحلقة  --✅-->                      
+                     
+</div>
+</div>
+  <h1 id="no-results" style="display: none; color: #fff; text-align: center; font-size: 20px; font-weight: bold;">لم يتم العثور على نتائج⚠️</h1>
+
+
+  
+ </main> 
+ 
+
+   
+<script>
+  const packageName = "co.wuffy.player";
+  const playStream = (element) => {
+    const streamLink = element.getAttribute("data-link");
+
+    // محاولة فتح التطبيق باستخدام intent
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = streamLink;
+    document.body.appendChild(iframe);
+
+    let playStoreRedirected = false;
+
+    // إذا لم يغادر المستخدم الصفحة بعد فترة قصيرة
+    setTimeout(() => {
+      document.body.removeChild(iframe);
+
+      if (document.visibilityState === "visible" && !playStoreRedirected) {
+        // إذا بقي المستخدم في الصفحة، يتم تحويله إلى متجر Google Play
+        playStoreRedirected = true;
+        const playStoreIntent = `intent://details?id=${packageName}#Intent;scheme=market;package=com.android.vending;end`;
+        window.location.href = playStoreIntent;
+      }
+    }, 1000); // زمن انتظار قصير (1 ثانية)
+  };
+</script>
+
+
+
+ 
+<!-- JavaScript -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchbar = document.getElementById("searchbar");
+    const closeIcon = document.getElementById("close-icon");
+    const searchIcon = document.getElementById("search-icon");
+    const noResults = document.getElementById("no-results");
+    const buttons = document.querySelectorAll(".event-card");
+
+    if (searchIcon && searchbar && closeIcon && noResults) {
+        // ✅ فتح شريط البحث عند الضغط على أيقونة البحث
+        searchIcon.addEventListener("click", function () {
             searchbar.classList.add("show");
             closeIcon.classList.add("show");
             searchbar.focus();
         });
 
+        // ✅ إغلاق شريط البحث عند الضغط على زر الإغلاق أو خارج شريط البحث
         function closeSearchBar() {
             if (searchbar.classList.contains("show")) {
                 searchbar.classList.remove("show");
                 closeIcon.classList.remove("show");
                 noResults.style.display = "none";
-                searchbar.value = "";
-                allEpisodes.forEach(episode => episode.classList.remove("hidden"));
+                searchbar.value = ""; // مسح البحث
+                buttons.forEach(button => button.classList.remove("hidden")); // إظهار جميع الأزرار
             }
         }
-        
-        closeIcon.addEventListener("click", function (event) {
-            event.stopPropagation(); 
-            closeSearchBar();
-        });
 
+        closeIcon.addEventListener("click", closeSearchBar);
         document.addEventListener("click", function (event) {
-            const searchContainer = document.getElementById("searchbar-container");
-            if (searchbar.classList.contains("show") && !searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
+            if (!searchbar.contains(event.target) && !searchIcon.contains(event.target) && !closeIcon.contains(event.target)) {
                 closeSearchBar();
             }
         });
 
+        // ✅ إغلاق شريط البحث عند الضغط على زر Escape
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                event.preventDefault(); // منع أي تأثيرات أخرى
+                closeSearchBar();
+            }
+        });
+
+        // ✅ البحث وإظهار النتائج
         searchbar.addEventListener("input", function () {
             const input = searchbar.value.trim().toLowerCase();
             let found = false;
 
-            allEpisodes.forEach(episode => {
-                const title = episode.querySelector("h2").textContent.trim().toLowerCase();
-                if (title.includes(input)) {
-                    episode.classList.remove("hidden");
+            buttons.forEach(button => {
+                if (button.textContent.toLowerCase().includes(input)) {
+                    button.classList.remove("hidden");
                     found = true;
                 } else {
-                    episode.classList.add("hidden");
+                    button.classList.add("hidden");
                 }
             });
 
+            // ✅ إظهار أو إخفاء رسالة "لم يتم العثور على نتائج"
             noResults.style.display = found ? "none" : "block";
         });
-    });
+    }
+});
+
+
+    //✅ دالة التعامل مع خطأ تحميل الصورة
+    function handleImageError(img) {
+        // تغيير مصدر الصورة إلى صورة بديلة في حال حدوث خطأ في تحميل الصورة الأصلية
+        img.src = "https://raw.githubusercontent.com/aminemk640/Movies-free/refs/heads/main/00.png?text=صورة+غير+متاحة'; // صورة بديلة";
+        img.onerror = null; // إيقاف محاولة تحميل الصورة مرة أخرى
+        
+    }
 </script>
 
+<audio id="hoverSound" src="https://sounds.pond5.com/game-interface-hover-sound-1-sound-effect-221424346_nw_prev.m4a" preload="auto"></audio>
+
+<script>
+    // تشغيل الصوت عند التأشير أو التركيز
+    const sound = document.getElementById('hoverSound');
+    const categories = document.querySelectorAll('.topnav a ,.number');
+
+    categories.forEach(cat => {
+      cat.addEventListener('mouseenter', () => {
+        sound.currentTime = 0;
+        sound.play();
+      });
+      cat.addEventListener('focus', () => {
+        sound.currentTime = 0;
+        sound.play();
+      });
+    });
+
+  </script>
+
+
+ <script> 
+// يفضل وضعه بعد إغلاق $(document).ready(...)
+
+$(document).on('keydown', function(event) {
+    // التحقق من زر "X" أو "الرجوع" في جهاز التحكم (عادةً Backspace أو Escape)
+    if (event.key === 'Backspace' || event.key === 'Escape' || event.keyCode === 461) {
+        // keyCode 461 هو رمز شائع لزر العودة في Android TV
+        history.back(); // العودة إلى الصفحة السابقة في السجل
+        event.preventDefault(); // منع السلوك الافتراضي للمتصفح (لتجنب الرجوع المزدوج أو إغلاق التطبيق)
+    }
+});
+ </script>
 </body>
 </html>
+
+
+
