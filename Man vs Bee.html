@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Man vs Bee</title>
-     <link href="https://raw.githubusercontent.com/aminemk640/Movies-free/refs/heads/main/00.png" rel="icon" type="image/x-icon">
+    <link href="https://cdn.icon-icons.com/icons2/125/PNG/96/movies_drive_20265.png" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -39,9 +39,9 @@
             text-decoration: none;
             font-size: 20px;
             transition: all 0.3s ease;
-            border: 2px solid transparent; /* إضافة حدود شفافة */
-            border-radius: 8px; /* جعل الزوايا مستديرة */
-            padding: 5px 10px; /* إضافة مساحة داخلية */
+            border: 2px solid transparent; 
+            border-radius: 8px; 
+            padding: 5px 10px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,13 +76,15 @@
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
-            width: 155px;
-            height: 205px;
+            width: 100%;
+            max-width: 155px; 
+            height: auto; 
             text-align: center;
             position: relative;
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: #fff;
+            justify-self: center; 
         }
 
         .episode-button:hover,
@@ -97,6 +99,7 @@
             height: 170px;
             display: block;
             border-bottom: 2px solid #555;
+            object-fit: cover; 
         }
 
         .episode-info {
@@ -129,120 +132,173 @@
             font-size: 16px;
         }
 
-/* Styling for the search bar and its container */
+        #searchbar-container {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            margin: 15px auto;
+            direction: rtl;
+            display: flex;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
 
-#searchbar-container {
-    position: relative;
-    width: 90%;
-    max-width: 600px;
-    margin: 15px auto;
-    direction: rtl;
-    display: flex;
-    align-items: center;
-    transition: all 0.5s ease;
-}
+        #searchbar {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            height: 40px;
+            border: 2px solid #ccc;
+            box-sizing: border-box;
+            display: none;
+            color: #333;
+            background-color: #f0f0f0;
+            transition: all 0.4s ease-in-out;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+        }
 
-#searchbar {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    height: 40px;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-    display: none;
-    color: #333;
-    background-color: #f0f0f0;
-    transition: all 0.4s ease-in-out;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* تأثير غائر */
-}
+        #searchbar:focus,
+        #searchbar:hover {
+            background: #fff;
+            color: #000;
+            border-color: gold;
+            box-shadow:
+                0 0 10px rgba(255, 215, 0, 0.7), 
+                0 0 20px rgba(255, 0, 102, 0.5), 
+                inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-#searchbar:focus,
-#searchbar:hover {
-    background: #fff;
-    color: #000;
-    border-color: gold;
-    box-shadow:
-        0 0 10px rgba(255, 215, 0, 0.7), /* توهج ذهبي */
-        0 0 20px rgba(255, 0, 102, 0.5), /* توهج وردي */
-        inset 0 2px 4px rgba(0, 0, 0, 0.3); /* تأثير غائر */
-}
+        #searchbar.show {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out; 
+        }
 
-#searchbar.show {
-    display: block;
-    animation: fadeIn 0.5s ease-in-out; /* إضافة تأثير ظهور */
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* Keyframe animation for a smoother fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        #close-icon {
+            background: linear-gradient(135deg, #ff0066, #ff8c00); 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 8px 10px;
+            margin-right: 5px;
+            display: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
 
-#close-icon {
-    background: linear-gradient(135deg, #ff0066, #ff8c00); /* تدرج لوني للخلفية */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 8px 10px;
-    margin-right: 5px;
-    display: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
+        #close-icon:focus,
+        #close-icon:hover {
+            box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+            transform: scale(1.05); 
+            background: linear-gradient(135deg, #ff8c00, #ff0066);
+        }
 
-#close-icon:focus,
-#close-icon:hover {
-    box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
-    transform: scale(1.05); /* تكبير طفيف عند التفاعل */
-    background: linear-gradient(135deg, #ff8c00, #ff0066);
-}
+        #close-icon.show {
+            display: block;
+            animation: fadeInButton 0.5s ease-in-out;
+        }
 
-#close-icon.show {
-    display: block;
-    animation: fadeInButton 0.5s ease-in-out;
-}
+        @keyframes fadeInButton {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-@keyframes fadeInButton {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+        .hidden {
+            display: none;
+        }
 
-.hidden {
-    display: none;
-}
+        #no-results {
+            color: #ff0066;
+            font-family: 'Arial', sans-serif;
+            margin-top: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            animation: pulse 1.5s infinite;
+        }
 
-#no-results {
-    color: #ff0066;
-    font-family: 'Arial', sans-serif;
-    margin-top: 10px;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    animation: pulse 1.5s infinite;
-}
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
+        .select-server-button {
+            width: 100%;
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: none; /* مخفي في البداية */
+        }
+        .select-server-button:hover, .select-server-button:focus {
+            background: #c0392b;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .server-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            display: none; /* مخفي في البداية */
+            flex-direction: column;
+            gap: 5px;
+            animation: slideUp 0.3s ease-out;
+            transform: translateY(100%);
+        }
+
+        .server-container.show {
+            display: flex;
+            transform: translateY(0);
+        }
+        
+        .server-button {
+            background: #4a69bd;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .server-button:hover, .server-button:focus {
+            background: #60a3bc;
+            box-shadow: 0 0 10px #fff;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -271,7 +327,7 @@
         <input id="searchbar"
                 type="text"
                 name="search"
-                placeholder="ابحث ...."
+                placeholder="ابحث عن افـــلام ...."
                 tabindex="1">
         <button tabindex="1" id="close-icon" class="x">❌</button>
     </div>
@@ -287,74 +343,123 @@
             {
                 episode: 1,
                 title: "الحلقة 1",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvZXM5bXM3YXYwZzNqcmd4OGI2NnR2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT1vYXplMmpuOThobWg4bjAyc3p5ZHExMzNlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "FHD",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvZXM5bXM3YXYwZzNqcmd4OGI2NnR2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT1vYXplMmpuOThobWg4bjAyc3p5ZHExMzNlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    },
+                    {
+                        name: "HD",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMWZjMTAwYXJ2ZTFrcG9pMmV3a2Z2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT0xNGFhODhsbjZtaDgzc21td25zZ2Qxa2FwJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    },
+                    {
+                        name: "SD",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMWNnOGV2NmZ1NmF3OG45ZmZnd3N6L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT05dnZkMGc0Z3E5cW83c21rbDBwaGc3bW53JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 2,
                 title: "الحلقة 2",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMGZyc29iamJvYTZ1Nmx0MzF5OTAyL01hbi12cy4tQmVlLXMxLWUyLm1wND9ybGtleT0xeGNmM29mZ3Y0bG1nbm54cmhidGRyaWljJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMGZyc29iamJvYTZ1Nmx0MzF5OTAyL01hbi12cy4tQmVlLXMxLWUyLm1wND9ybGtleT0xeGNmM29mZ3Y0bG1nbm54cmhidGRyaWljJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 3,
                 title: "الحلقة 3",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcDQzOGZveXkwdGRra2xvYWFma21tL01hbi12cy4tQmVlLXMxLWUzLm1wND9ybGtleT04dWY4eTludmRlbHA0bHppc2NybmpqOWJ2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcDQzOGZveXkwdGRra2xvYWFma21tL01hbi12cy4tQmVlLXMxLWUzLm1wND9ybGtleT04dWY4eTludmRlbHA0bHppc2NybmpqOWJ2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 4,
                 title: "الحلقة 4",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcTE4OTJ5cHVidWg4NjZ2eTUycWhhL01hbi12cy4tQmVlLXMxLWU0Lm1wND9ybGtleT0zZzczbHlpbXFpcXdyZjIxYTV5dGpucHUyJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcTE4OTJ5cHVidWg4NjZ2eTUycWhhL01hbi12cy4tQmVlLXMxLWU0Lm1wND9ybGtleT0zZzczbHlpbXFpcXdyZjIxYTV5dGpucHUyJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 5,
                 title: "الحلقة 5",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvc2F3dTF3aXg2a212b3NoeW9namhlL01hbi12cy4tQmVlLXMxLWU1Lm1wND9ybGtleT1yc3VudzEyOW1qMWdrZ3hmZWF0bnc3anloJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvc2F3dTF3aXg2a212b3NoeW9namhlL01hbi12cy4tQmVlLXMxLWU1Lm1wND9ybGtleT1yc3VudzEyOW1qMWdrZ3hmZWF0bnc3anloJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 6,
                 title: "الحلقة 6",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvNGI0dndvMXJxOW5iMGQ4Z3BkbGpnL01hbi12cy4tQmVlLXMxLWU2Lm1wND9ybGtleT11MWRnYTM1OWxmeDEyMjRzZ2h3cmF1d2dlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvNGI0dndvMXJxOW5iMGQ4Z3BkbGpnL01hbi12cy4tQmVlLXMxLWU2Lm1wND9ybGtleT11MWRnYTM1OWxmeDEyMjRzZ2h3cmF1d2dlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 7,
                 title: "الحلقة 7",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvb252NThuZTJlZGFoOTE4cjk5c282L01hbi12cy4tQmVlLXMxLWU3Lm1wND9ybGtleT03cmFoZ3JyYm5maXJocmNtcXdsNmphY2d2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvb252NThuZTJlZGFoOTE4cjk5c282L01hbi12cy4tQmVlLXMxLWU3Lm1wND9ybGtleT03cmFoZ3JyYm5maXJocmNtcXdsNmphY2d2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 8,
                 title: "الحلقة 8",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMG8zcXRscTd2engxdTU1d2Z2dGdqL01hbi12cy4tQmVlLXMxLWU4Lm1wND9ybGtleT1sc3ZrNno3NHYwenZvdW15aXBycWljeWZzJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMG8zcXRscTd2engxdTU1d2Z2dGdqL01hbi12cy4tQmVlLXMxLWU4Lm1wND9ybGtleT1sc3ZrNno3NHYwenZvdW15aXBycWljeWZzJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             },
             {
                 episode: 9,
                 title: "الحلقة 9",
-                url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvd2k1NGd4MTkzdnBvemVsdXQ4bDF3L01hbi12cy4tQmVlLXMxLWU5Lm1wND9ybGtleT1zaWh2NWI5cWZiMmg0NmF3NHdvN3Axbmo5JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
-                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw==",
+                servers: [
+                    {
+                        name: "سيرفر 1",
+                        url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvd2k1NGd4MTkzdnBvemVsdXQ4bDF3L01hbi12cy4tQmVlLXMxLWU5Lm1wND9ybGtleT1zaWh2NWI5cWZiMmg0NmF3NHdvN3Axbmo5JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"
+                    }
+                ]
             }
         ];
 
         const episodesGrid = document.getElementById('episodes-list');
 
         episodesData.forEach(episode => {
-            const episodeLink = document.createElement('a');
-            episodeLink.href = episode.url;
-            episodeLink.className = 'episode-button';
-            episodeLink.setAttribute('rel', 'nofollow');
-            episodeLink.setAttribute('aria-label', `Episode ${episode.episode}`);
-            episodeLink.setAttribute('tabindex', '0'); // Added for remote control navigation
+            const episodeContainer = document.createElement('div');
+            episodeContainer.className = 'episode-button';
+            episodeContainer.setAttribute('tabindex', '0'); 
             
-            // Unique key for each episode of this specific show
             const storageKey = `man_vs_bee_episode-${episode.episode}-watched`;
             const isWatched = localStorage.getItem(storageKey) === 'true';
 
-            episodeLink.innerHTML = `
+            episodeContainer.innerHTML = `
                 <div class="watched-icon" style="display: ${isWatched ? 'flex' : 'none'};">
                     <i class="fa-solid fa-check-to-slot"></i>
                 </div>
@@ -362,31 +467,79 @@
                 <div class="episode-info">
                     <h2>Episode ${episode.episode}</h2>
                 </div>
+                <button class="select-server-button">اختر سيرفر المشاهدة</button>
+                <div class="server-container"></div>
             `;
 
-            episodesGrid.appendChild(episodeLink);
+            episodesGrid.appendChild(episodeContainer);
 
-            episodeLink.addEventListener('click', () => {
-                localStorage.setItem(storageKey, 'true');
-                episodeLink.querySelector('.watched-icon').style.display = 'flex';
+            const selectButton = episodeContainer.querySelector('.select-server-button');
+            const serverContainer = episodeContainer.querySelector('.server-container');
+
+            // حدث النقر على أي مكان داخل الحلقة
+            episodeContainer.addEventListener('click', () => {
+                // إغلاق أي قوائم سيرفرات أخرى مفتوحة
+                document.querySelectorAll('.server-container.show').forEach(openContainer => {
+                    if (openContainer !== serverContainer) {
+                        openContainer.classList.remove('show');
+                        openContainer.innerHTML = '';
+                    }
+                });
+
+                // إظهار زر "اختر سيرفر المشاهدة"
+                selectButton.style.display = 'block';
+            });
+
+            // حدث النقر على زر "اختر سيرفر المشاهدة"
+            selectButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // منع الحدث من الوصول إلى الحاوية الرئيسية
+                const isShowing = serverContainer.classList.toggle('show');
+                if (isShowing) {
+                    serverContainer.innerHTML = '';
+                    episode.servers.forEach(server => {
+                        const serverLink = document.createElement('a');
+                        serverLink.href = server.url;
+                        serverLink.className = 'server-button';
+                        serverLink.setAttribute('rel', 'nofollow');
+                        serverLink.setAttribute('tabindex', '0');
+                        serverLink.textContent = server.name;
+                        serverContainer.appendChild(serverLink);
+
+                        serverLink.addEventListener('click', (linkEvent) => {
+                            linkEvent.stopPropagation(); // منع الحدث من الوصول إلى الحاوية
+                            localStorage.setItem(storageKey, 'true');
+                            episodeContainer.querySelector('.watched-icon').style.display = 'flex';
+                            serverContainer.classList.remove('show');
+                        });
+                    });
+                } else {
+                    serverContainer.innerHTML = '';
+                }
+            });
+
+            // إخفاء القوائم عند النقر في أي مكان آخر
+            document.addEventListener('click', (event) => {
+                if (!episodeContainer.contains(event.target)) {
+                    serverContainer.classList.remove('show');
+                    serverContainer.innerHTML = '';
+                }
             });
         });
 
+        // Search bar functionality remains the same
         const searchbar = document.getElementById("searchbar");
         const closeIcon = document.getElementById("close-icon");
         const searchIcon = document.getElementById("search-icon");
         const noResults = document.getElementById("no-results");
         const allEpisodes = document.querySelectorAll(".episode-button");
 
-        // ✅ Open search bar on search icon click
         searchIcon.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevents the click from bubbling up to the document
+            event.stopPropagation(); 
             searchbar.classList.add("show");
             closeIcon.classList.add("show");
             searchbar.focus();
         });
 
-        // ✅ Close search bar on close icon click or when clicking anywhere else
         function closeSearchBar() {
             if (searchbar.classList.contains("show")) {
                 searchbar.classList.remove("show");
@@ -398,7 +551,7 @@
         }
         
         closeIcon.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevents the click from bubbling up
+            event.stopPropagation(); 
             closeSearchBar();
         });
 
@@ -409,7 +562,6 @@
             }
         });
 
-        // ✅ Live Search Functionality
         searchbar.addEventListener("input", function () {
             const input = searchbar.value.trim().toLowerCase();
             let found = false;
