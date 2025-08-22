@@ -1,328 +1,396 @@
 <!DOCTYPE html>
-<html lang="AR" dir="ltr">
+<html lang="ar" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Man vs Bee</title>
-  <link href="https://cdn.icon-icons.com/icons2/125/PNG/96/movies_drive_20265.png" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.icon-icons.com/icons2/125/PNG/96/movies_drive_20265.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: ltr;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .header a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+      .header a:focus,
+        .header a:hover {
+            transform: translateY(1px);
+            box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
+            border-color: gold;
+        }
+
+        .header a:focus svg path,
+        .header a:hover svg path {
+            fill: gold;       
+            background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .episode-button {
+            background: #2c3e50;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .episode-button:hover,
+        .episode-button:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: gold;
+        }
+
+        .episode-button img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 2px solid #555;
+        }
+
+        .episode-info {
+            padding: 10px;
+        }
+
+        .episode-info h2 {
+            font-size: 16px;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        main {
+            padding: 5px;
+            margin-top: 0px; /* تترك مساحة للشريط العلوي */
+            margin-bottom: 70px; /* تترك مساحة للقائمة السفلية */
+
+        }
+        .watched-icon {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .watched-icon i {
+            color: #000;
+            font-size: 16px;
+        }
+               /* شريط البحث */
+        #searchbar-container {
+            position: relative;
+            width: 90%; /* زيادة العرض ليتناسب مع الشاشات المختلفة */
+            max-width: 600px; /* تحديد أقصى عرض */
+            margin: 15px auto;
+            direction: rtl;
+            display: flex; /* لجعل الزر X بجانب شريط البحث */
+            align-items: center;
+        }
+
+        #searchbar {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            height: 40px; /* ارتفاع مناسب */
+            border: 2px solid gold;
+            box-sizing: border-box;
+            display: none; /* إخفاء في البداية */
+            color: #333; /* لون النص داخل شريط البحث */
+            background-color: #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        #searchbar:focus,
+        #searchbar:hover {
+            background: #fff;
+            color: #000;
+            border-color: #ff0066;
+            box-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+        }
+
+        #searchbar.show {
+            display: block; /* إظهار الشريط */
+        }
+
+        #close-icon {
+            background: #111;
+            color: #fff; /* لون أيقونة الإغلاق */
+            border: 2px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #fff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 8px 10px;
+            margin-right: 5px; /* مسافة بين شريط البحث و زر الإغلاق */
+            display: none; /* إخفاء في البداية */
+            transition: all 0.3s ease;
+        }
+
+        #close-icon:focus,
+        #close-icon:hover {
+            background: #222;
+            color: #ff0066;
+            border-color: #ff0066;
+            box-shadow: 0 0 10px #ff0066;
+        }
+
+        #close-icon.show {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #no-results-message {
+            color: red;
+            font-family: 'Cairo', sans-serif;
+            margin-top: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-    <!----------  اكواد استايل القائمة  ------------>
-    <style>
+<header class="header">
+    <div class="header-right">
+       <a onclick="history.back()" tabindex="0" title="الرجوع" role="button">
+    <svg width="25" height="20" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path d="M209.4 39.5c-9.1-9.6-24.3-10-33.9-.9L33.8 173.2c-19.9 18.9-19.9 50.7 0 69.6L175.5 377.4c9.6 9.1 24.8 8.7 33.9-.9s8.7-24.8-.9-33.9L66.8 208 208.5 73.4c9.6-9.1 10-24.3 .9-33.9zM352 64c0-12.6-7.4-24.1-19-29.2s-25-3-34.4 5.4l-160 144c-6.7 6.1-10.6 14.7-10.6 23.8s3.9 17.7 10.6 23.8l160 144c9.4 8.5 22.9 10.6 34.4 5.4s19-16.6 19-29.2l0-64 32 0c53 0 96 43 96 96c0 30.4-12.8 47.9-22.2 56.7c-5.5 5.1-9.8 12-9.8 19.5c0 10.9 8.8 19.7 19.7 19.7c2.8 0 5.6-.6 8.1-1.9C494.5 467.9 576 417.3 576 304c0-97.2-78.8-176-176-176l-48 0 0-64z"></path>
+    </svg>
+</a>
+    </div>
+    <div class="header-center">
+        <h1>Man vs Bee</h1>
+    </div>
+    <div class="header-left">
+       <a tabindex="1" href="javascript:void(0)" id="search-icon"><svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" width="25" height="25" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path fill="#fff" stroke-width="4" d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_"></path>
+            </svg></a></div> 
     
-
-        .topnav {
-            position: relative;
-            overflow: hidden;
-            border-color: #000;
-            border-radius: 4px;
-            top: 0;
-            height:50px;
-            width: 100%;
-            box-shadow: 0px 0px 12px #fff;
-            z-index: 1;
-
-            /**  تغير الون خلفيه اللوجو   **/
-   background-image: linear-gradient(132deg, #3c4a71 0%, #339a8a 100%);
-
-            /**  تغير الون LKHAT اللوجو   **/
-        }
-
-        .topnav a {
-            float: left;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 24px;
-        }
-
-       
- 
-   /* إضافة تأثير تغيير لون الخلفية عند تحديد الزر */
-        .topnav a:focus {
-           background-color: #6f2f9f;
-            border-radius: 8px; /* يمكنك تغيير اللون إلى أي لون تفضله */
-            color: #fff; /* تغيير لون النص إلى اللون المناسب للخلفية */
-            outline: none; /* إزالة تأثير الـ focus الافتراضي */
-        }
-
-        /* للتأكد من أن الزر يمكن الوصول إليه عند التحكم بجهاز التحكم عن بُعد */
-        .topnav a:hover {
-            background-color: #6f2f9f;
-            border-radius: 8px; /* يمكنك تغيير اللون إلى أي لون تفضله */
-            color: #fff; /* تغيير لون النص إلى اللون المناسب للخلفية */
-        }
-
-        .topnav-centered a {
-
-            float: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .topnav-right {
-            float: right;
-        }
-
-        /* Responsive navigation menu (for mobile devices) */
-        @media screen and (max-width: 100%) {
-            .topnav a,
-            .topnav-right {
-                float: none;
-                display: block;
-            }
-
-            .topnav-centered a {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-                color: #000;
-            }
-        }
-        
-        kat{
- text-align: center;
- font-size: 24px;
-font-family: 'El Messiri', sans-serif;
-}
-    </style>
-    <head>
-
-        <body>
-
-           
-            <!-- lçaima l3lwia and-->
-            <html>
-<head>
+</header>
+<main class="container">
+<div align="center" id="searchbar-container">
+    <input id="searchbar" 
+           onkeyup="search_animal();" 
+           type="text" 
+           name="search" 
+           placeholder="ابحث عن افـــلام ...." 
+           tabindex="1">
+<button tabindex="1"id="close-icon"class="x">❌</button></div>
     
-    <style>
-           body {
-                height: 100%;
-                margin: auto;
-                position: relative;
-           background: #3c4a71;
-             background-position: center;
-                align-items: center;
-                justify-content: center;
-            }
-
-
-           button {
-                position: relative;
-                align:center;
-                height: 216px;
-                width: 160px;
-        box-shadow: 0px 0px 6px #000;
-                margin: 5px;
-              border-color: #666;
-                outline: none;
-                text-align: center;
-                font-size: 25px;
-                color: black;
-                 background-color: #fff;
-                cursor: pointer;
-                border-radius: 5px;
-                font-family: 'Raleway', sans-serif;
-            
-            }
-
-
-            button {
-    margin-top: 15px; /* تبعد الأزرار عن القائمة بمقدار 5 بيكسل */
-}
-
-            button img {
-            position: relative;
-                align:center;
-                border-radius: 8px;
-                height: 200px;
-                width: 140px;
-            }
-        
-        
- 
-   /* إضافة تأثير تغيير لون الخلفية عند تحديد الزر */
-        .button:hover,.button:focus { 
-        border: 3px solid gold;
-            background: #6f2f9f; /* يمكنك تغيير اللون إلى أي لون تفضله */
-            color: #fff; /* تغيير لون النص إلى اللون المناسب للخلفية */
-            outline: none; /* إزالة تأثير الـ focus الافتراضي */
-        }
-
-       
-            /* .ازالة شريط التمرير اسفل المدونة*/
-            html {
-                overflow-x: hidden;
-            }
-
-            /* ازالة تغيير شكل السكرول بار Scroll.Bar */
-            ::-webkit-scrollbar {
-                width: 7px;
-                /**  تغير  لون القائمة **/
-            }
-
-            ::-webkit-scrollbar-thumb {
-                -webkit-shadow: inset 0 0 0 #000000;
-                -webkit-border-radius: 0;
-                background-image: -webkit-linear-gradient(top, #bc1115 100%, #000 100%);
-            }
-
-            ::-webkit-scrollbar-track {
-                -webkit-shadow: inset 0 0 0 #000000;
-                -webkit-border-radius: 100px;
-            }
-
-             h2 {
-   position: absolute;  
-   top: 180px;
-    left: 4;
-	text-align: center;
-	margin-top:0px;
-	font-size: 18px;
-	color:#fff;
-	font-family: "Airarabia", Sans-serif;
-	font-weight: bold;
-	}
-        
-/* تظهر الأيقونة أعلى الزجاجية */
-.watched-icon {
-    position: absolute;
-    top: 0;
-    left: 0; /* يمكنك ضبط القيمة الأفضل حسب تصميمك */
-    width: 24px;
-    height: 24px;
-    z-index: 2; /* لجعلها تظهر فوق الزجاجية */
-    background:#04AA6D; /* لخلفية زجاجية بلون أبيض شفاف */
-    border-radius: 20%; /* للزوايا المستديرة */
-    border-color:black;
-    padding: 5px; /* تعديل حجم الأيقونة داخل الزجاجية */
-    box-shadow: 0 0 5px red(0, 0, 0, 0.2); /* ظل للزجاجية */
-}
-
-.episode {
-text-align: center;
-    width: 147px;
-    height: 26px;
-    background-color:#000; /* لخلفية زجاجية بلون أبيض شفاف */
-    border-radius: 8px; /* للزوايا المستديرة */
+        <div class="episodes-grid" id="episodes-list">
+        </div>
+    </main>
+  <h1 id="no-results" style="display: none; color: #fff; text-align: center; font-size: 20px; font-weight: bold;">لم يتم العثور على نتائج⚠️</h1>
   
-}
-                </style>
-           <!-- Top navigation -->
-            <div class="topnav">
-                <!-- ISIM TATBI9 -->
-                              <!-- ISIM TATBI9 -->
- <!-- ISIM TATBI9 -->
-                <div class="topnav-centered">
-<a><center><kat class="kat">Man vs Bee </kat></center> </a></div>
-              
-
-                <!-- ISIM TATBI9 -->
-                <!-- ZIR ROJO3 -->
-                <a href="go:1 ">
-                    <i id="i1" class="fa fa-reply fa-beat" style="font-size: 20px; margin-top: 2px; "></i>
-                </a>
-                <!-- ZIR ROJO3 -->
-
-
-                <!-- ZIR LBAHT-search -->
-                <div class="topnav-right">
-                    <a href="http://action_search/"><i class="fa fa-search fa-beat" style="font-size: 20px;"></i></a>
-                    <!-- ZIR LBAHT-search -->
-
-                </div>
-
-            </div>
-      
-           <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('.section');
-
-  sections.forEach(function(section) {
-    const buttons = section.querySelectorAll('.button');
-    buttons.forEach(function(button, index) {
-      const watchedIcon = button.querySelector('.watched-icon');
-      const episodeNumber = index + 1;
-      const storageKey = `section${section.dataset.section}-watchedIcon${episodeNumber}`;
-      const isWatched = localStorage.getItem(storageKey);
-
-      if (isWatched === "true") {
-        watchedIcon.style.display = "inline";
-      }
-
-     button.addEventListener('click', function () {
-                const isWatched = localStorage.getItem(storageKey);
-
-                if (isWatched === "true") {
-                    watchedIcon.style.display = "inline";
-                } else {
-                    watchedIcon.style.display = "inline";
-                    localStorage.setItem(storageKey, "true");
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const episodesData = [
+                {
+                    episode: 1,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvZXM5bXM3YXYwZzNqcmd4OGI2NnR2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT1vYXplMmpuOThobWg4bjAyc3p5ZHExMzNlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 2,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMGZyc29iamJvYTZ1Nmx0MzF5OTAyL01hbi12cy4tQmVlLXMxLWUyLm1wND9ybGtleT0xeGNmM29mZ3Y0bG1nbm54cmhidGRyaWljJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 3,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcDQzOGZveXkwdGRra2xvYWFma21tL01hbi12cy4tQmVlLXMxLWUzLm1wND9ybGtleT04dWY4eTludmRlbHA0bHppc2NybmpqOWJ2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 4,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcTE4OTJ5cHVidWg4NjZ2eTUycWhhL01hbi12cy4tQmVlLXMxLWU0Lm1wND9ybGtleT0zZzczbHlpbXFpcXdyZjIxYTV5dGpucHUyJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 5,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvc2F3dTF3aXg2a212b3NoeW9namhlL01hbi12cy4tQmVlLXMxLWU1Lm1wND9ybGtleT1yc3VudzEyOW1qMWdrZ3hmZWF0bnc3anloJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 6,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvNGI0dndvMXJxOW5iMGQ4Z3BkbGpnL01hbi12cy4tQmVlLXMxLWU2Lm1wND9ybGtleT11MWRnYTM1OWxmeDEyMjRzZ2h3cmF1d2dlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 7,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvb252NThuZTJlZGFoOTE4cjk5c282L01hbi12cy4tQmVlLXMxLWU3Lm1wND9ybGtleT03cmFoZ3JyYm5maXJocmNtcXdsNmphY2d2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 8,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMG8zcXRscTd2engxdTU1d2Z2dGdqL01hbi12cy4tQmVlLXMxLWU4Lm1wND9ybGtleT1sc3ZrNno3NHYwenZvdW15aXBycWljeWZzJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
+                },
+                {
+                    episode: 9,
+                    url: "intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvd2k1NGd4MTkzdnBvemVsdXQ4bDF3L01hbi12cy4tQmVlLXMxLWU5Lm1wND9ybGtleT1zaWh2NWI5cWZiMmg0NmF3NHdvN3Axbmo5JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end",
+                    image: "https://resizing.flixster.com/G9uXHuFBMR6QhIkIAQj7uTPOETY=/206x305/v2/https://resizing.flixster.com/RdaAe5e3UNTTCSvn0-Jwt8O3Mys=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvNDg4ODcxM2UtOWJhZS00ZWNiLTg4M2YtZThiNTczZWY1NTFlLmpwZw=="
                 }
+            
+            ];
+
+            const episodesGrid = document.getElementById('episodes-list');
+
+            episodesData.forEach(episode => {
+                const episodeLink = document.createElement('a');
+                episodeLink.href = episode.url;
+                episodeLink.className = 'episode-button';
+                episodeLink.setAttribute('rel', 'nofollow');
+                episodeLink.setAttribute('aria-label', `Episode ${episode.episode}`);
+                
+                const isWatched = localStorage.getItem(`episode-${episode.episode}-watched`) === 'true';
+
+                episodeLink.innerHTML = `
+                    <div class="watched-icon" style="display: ${isWatched ? 'flex' : 'none'};">
+                        <i class="fa-solid fa-check-to-slot"></i>
+                    </div>
+                    <img src="${episode.image}" alt="Episode ${episode.episode} thumbnail">
+                    <div class="episode-info">
+                        <h2>Episode ${episode.episode}</h2>
+                    </div>
+                `;
+
+                episodesGrid.appendChild(episodeLink);
+
+                episodeLink.addEventListener('click', () => {
+                    localStorage.setItem(`episode-${episode.episode}-watched`, 'true');
+                    episodeLink.querySelector('.watched-icon').style.display = 'flex';
+                });
             });
         });
-    });
-});
-
-</script> 
+    </script>
 
  
-</head>
-<body>
+<!-- JavaScript -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchbar = document.getElementById("searchbar");
+    const closeIcon = document.getElementById("close-icon");
+    const searchIcon = document.getElementById("search-icon");
+    const noResults = document.getElementById("no-results");
+    const buttons = document.querySelectorAll(".episodes-grid");
 
-<div align="center" >
-<div id="button-list">	
-<div class="container">
-<div id="button">
-<div class="section" data-section="Man vs Bee-1">
-<div> 
+    if (searchIcon && searchbar && closeIcon && noResults) {
+        // ✅ فتح شريط البحث عند الضغط على أيقونة البحث
+        searchIcon.addEventListener("click", function () {
+            searchbar.classList.add("show");
+            closeIcon.classList.add("show");
+            searchbar.focus();
+        });
+
+        // ✅ إغلاق شريط البحث عند الضغط على زر الإغلاق أو خارج شريط البحث
+        function closeSearchBar() {
+            if (searchbar.classList.contains("show")) {
+                searchbar.classList.remove("show");
+                closeIcon.classList.remove("show");
+                noResults.style.display = "none";
+                searchbar.value = ""; // مسح البحث
+                buttons.forEach(button => button.classList.remove("hidden")); // إظهار جميع الأزرار
+            }
+        }
+
+        closeIcon.addEventListener("click", closeSearchBar);
+        document.addEventListener("click", function (event) {
+            if (!searchbar.contains(event.target) && !searchIcon.contains(event.target) && !closeIcon.contains(event.target)) {
+                closeSearchBar();
+            }
+        });
+
+        // ✅ إغلاق شريط البحث عند الضغط على زر Escape
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                event.preventDefault(); // منع أي تأثيرات أخرى
+                closeSearchBar();
+            }
+        });
+
+        // ✅ البحث وإظهار النتائج
+        searchbar.addEventListener("input", function () {
+            const input = searchbar.value.trim().toLowerCase();
+            let found = false;
+
+            buttons.forEach(button => {
+                if (button.textContent.toLowerCase().includes(input)) {
+                    button.classList.remove("hidden");
+                    found = true;
+                } else {
+                    button.classList.add("hidden");
+                }
+            });
+
+            // ✅ إظهار أو إخفاء رسالة "لم يتم العثور على نتائج"
+            noResults.style.display = found ? "none" : "block";
+        });
+    }
+});
 
 
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvZXM5bXM3YXYwZzNqcmd4OGI2NnR2L01hbi12cy4tQmVlLXMxLWUxLm1wND9ybGtleT1vYXplMmpuOThobWg4bjAyc3p5ZHExMzNlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-1</h2></button></a> 
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMGZyc29iamJvYTZ1Nmx0MzF5OTAyL01hbi12cy4tQmVlLXMxLWUyLm1wND9ybGtleT0xeGNmM29mZ3Y0bG1nbm54cmhidGRyaWljJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-2</h2></button></a> 
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcDQzOGZveXkwdGRra2xvYWFma21tL01hbi12
-cy4tQmVlLXMxLWUzLm1wND9ybGtleT04dWY4eTludmRlbHA0bHppc2NybmpqOWJ2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-3</h2></button></a>
-
-
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvcTE4OTJ5cHVidWg4NjZ2eTUycWhhL01hbi12
-cy4tQmVlLXMxLWU0Lm1wND9ybGtleT0zZzczbHlpbXFpcXdyZjIxYTV5dGpucHUyJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-4</h2></button></a>
-
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvc2F3dTF3aXg2a212b3NoeW9namhlL01hbi12
-cy4tQmVlLXMxLWU1Lm1wND9ybGtleT1yc3VudzEyOW1qMWdrZ3hmZWF0bnc3anloJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-5</h2></button></a>
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvNGI0dndvMXJxOW5iMGQ4Z3BkbGpnL01hbi12
-cy4tQmVlLXMxLWU2Lm1wND9ybGtleT11MWRnYTM1OWxmeDEyMjRzZ2h3cmF1d2dlJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-6</h2></button></a>
-
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvb252NThuZTJlZGFoOTE4cjk5c282L01hbi12
-cy4tQmVlLXMxLWU3Lm1wND9ybGtleT03cmFoZ3JyYm5maXJocmNtcXdsNmphY2d2JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-7</h2></button></a>
-
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvMG8zcXRscTd2engxdTU1d2Z2dGdqL01hbi12
-cy4tQmVlLXMxLWU4Lm1wND9ybGtleT1sc3ZrNno3NHYwenZvdW15aXBycWljeWZzJmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-8</h2></button></a>
-
-<a href="intent://aHR0cHM6Ly9kbC5kcm9wYm94LmNvbS9zY2wvZmkvd2k1NGd4MTkzdnBvemVsdXQ4bDF3L01hbi12
-cy4tQmVlLXMxLWU5Lm1wND9ybGtleT1zaWh2NWI5cWZiMmg0NmF3NHdvN3Axbmo5JmRsPTA=#Intent;scheme=xmtv;package=co.wuffy.player;end"rel="nofollow"><button class="button"><img class="watched-icon" src="https://static.thenounproject.com/png/1970476-200.png" alt="Watched Icon" style="display: none;"><img src="https://web3.topcinema.top/wp-content/uploads/2023/09/MV5BMGExOWU4YmItMjkxOC00NjdjLTk2ZWEtZGViMGM1ZGFhZmQxXkEyXkFqcGdeQXVyODQyOTY2OTA@.jpg_V1_SX700-439x650.jpg" alt="episode1">  <h2 class="episode">episode-9</h2></button></a>
-
-
-</div>
-</div></div>
-</div></div></div>
-    <br>
-  <br>
+    //✅ دالة التعامل مع خطأ تحميل الصورة
+    function handleImageError(img) {
+        // تغيير مصدر الصورة إلى صورة بديلة في حال حدوث خطأ في تحميل الصورة الأصلية
+        img.src = "https://raw.githubusercontent.com/aminemk640/Movies-free/refs/heads/main/00.png?text=صورة+غير+متاحة'; // صورة بديلة";
+        img.onerror = null; // إيقاف محاولة تحميل الصورة مرة أخرى
+        
+    }
+</script>
 </body>
 </html>
-
